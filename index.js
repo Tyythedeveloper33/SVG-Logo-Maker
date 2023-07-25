@@ -1,8 +1,9 @@
+const svg = require('./generatesvg.js')
 const inquirer = require('inquirer');
 
 
 
- const inquirer_prompt = [
+ const prompts = [
     {
         type: 'input',
         message: 'select 3 characters for your logo !',
@@ -31,8 +32,11 @@ const inquirer = require('inquirer');
         
         
     },
-].then((answers) => {
-    // Use user feedback for... whatever you want!!
+ ]
+ inquirer
+ .prompt(prompts)
+ .then((answers) => {
+    
     let returnedData = generateSvg(answers);
     writeToFile('index.html', returnedData);
 }).catch((error) => {
@@ -49,4 +53,5 @@ function writeToFile(fileName, data) {
       }
     });
   }
+  
   
