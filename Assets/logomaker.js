@@ -1,17 +1,25 @@
+
+// Import required modules and shape classes
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Circle = require('./circle'); // Import the Circle class from Circle.js
 const Triangle = require('./triangle'); // Import the Triangle class from Triangle.js
 const Square = require('./square'); // Import the Square class from Square.js
 
+// Function to render the logo based on user input
 function renderLogo(text, textColor, shape, shapeColor) {
-  // Generate the svg content based on the users' choices
-  const svgContent = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">${shape.render(shapeColor)}
-    <text x="50%" y="50%" fill="${textColor}" font-size="24" text-anchor="middle">${text}</text>
-</svg> `;
+  // Generate the SVG content based on the users' choices
+  const svgContent = `
+    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      ${shape.render(shapeColor)} <!-- Render the selected shape with the shapeColor -->
+      <text x="50%" y="50%" fill="${textColor}" font-size="24" text-anchor="middle">${text}</text>
+      <!-- Render the text -->
+    </svg>
+  `;
   return svgContent;
 }
 
+// Function to write the logo content to logo.svg file
 function writeLogoToFile(logoContent, text) {
   fs.writeFile('logo.svg', logoContent, (err) => {
     if (err) {
@@ -22,6 +30,7 @@ function writeLogoToFile(logoContent, text) {
   });
 }
 
+// Prompt the user for logo information
 inquirer
   .prompt([
     {
@@ -62,5 +71,5 @@ inquirer
     console.log(error);
   });
 
-// Exporting the shape classes for usage in the module
+// Array of shape classes for usage in the module
 const shapes = [new Circle(), new Triangle(), new Square()];
