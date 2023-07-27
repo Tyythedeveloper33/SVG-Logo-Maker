@@ -5,7 +5,7 @@ class Square extends shape {
     }
      //render method for square (svg syntax for circle shape )
      render(shapeColor){
-        return  `<rect x="75" y="50" width="50" height="50"fill="${shapeColor}" />`
+        return  `<rect x="77" y="25" width="150" height="150" fill="${shapeColor}" />`
         //placeholder svg for square
       }
 }
