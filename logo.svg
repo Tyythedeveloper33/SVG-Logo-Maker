@@ -1,6 +1,6 @@
 
     <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <rect x="77" y="25" width="150" height="150" fill="black" /> <!-- Render the selected shape with the shapeColor -->
+      <polygon points ="150, 30 105, 120 195, 120" fill="black" /> <!-- Render the selected shape with the shapeColor -->
       <text x="50%" y="50%" fill="red" font-size="24" text-anchor="middle">ttg</text>
       <!-- Render the text -->
     </svg>
