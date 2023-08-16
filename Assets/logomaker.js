@@ -5,15 +5,15 @@ const fs = require('fs');
 const Circle = require('./circle'); // Import the Circle class from Circle.js
 const Triangle = require('./triangle'); // Import the Triangle class from Triangle.js
 const Square = require('./square'); // Import the Square class from Square.js
+const { Module } = require('module');
 
 // Function to render the logo based on user input
 function renderLogo(text, textColor, shape, shapeColor) {
   // Generate the SVG content based on the users' choices
   const svgContent = `
     <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      ${shape.render(shapeColor)} <!-- Render the selected shape with the shapeColor -->
+      ${shape.render(shapeColor)} 
       <text x="50%" y="50%" fill="${textColor}" font-size="24" text-anchor="middle">${text}</text>
-      <!-- Render the text -->
     </svg>
   `;
   return svgContent;
@@ -73,3 +73,4 @@ inquirer
 
 // Array of shape classes for usage in the module
 const shapes = [new Circle(), new Triangle(), new Square()];
+module.exports = {renderLogo}
